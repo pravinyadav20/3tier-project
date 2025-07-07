@@ -1,8 +1,8 @@
-version: 0.2
-phases:
-  install:
-    commands:
-      - echo "Installing frontend and backend via Docker builds..."
+ version: 0.2
+ phases:
+   install:
+     commands:
+       - echo "Installing frontend and backend via Docker builds..."
       - sudo yum install nginx -y
       - docker build -t frontend-image ./application-code/web-tier
       - docker build -t backend-image ./application-code/app-tier
