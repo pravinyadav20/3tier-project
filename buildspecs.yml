@@ -8,7 +8,7 @@ phases:
       - echo Installing frontend dependencies...
       - cd application-code/web-tier
       - npm install
-      - cd ../../application-code/backend-tier
+      - cd ../../application-code/app-tier
       - echo Installing backend dependencies...
       - npm install
 
