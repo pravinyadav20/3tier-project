@@ -3,8 +3,8 @@ version: 0.2
 env:
   variables:
     AWS_REGION: "ap-south-1"
-    IMAGE1_NAME: "<account_id>.dkr.ecr.ap-south-1.amazonaws.com/frontend-image"
-    IMAGE2_NAME: "<account_id>.dkr.ecr.ap-south-1.amazonaws.com/backend-image"
+    IMAGE1_NAME: "249133131200.dkr.ecr.ap-south-1.amazonaws.com/frontend-image"
+    IMAGE2_NAME: "249133131200.dkr.ecr.ap-south-1.amazonaws.com/backend-image"
 
 phases:
   install:
