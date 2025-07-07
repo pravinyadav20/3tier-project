@@ -13,14 +13,12 @@
       - docker run -d --name backend-container -p 4000:4000 backend-image
       - echo "Docker containers started successfully."
 
-env:
-  variables:
+   env:
+      variables:
     AWS_REGION: "ap-south-1"
     IMAGE1_NAME: "<account_id>.dkr.ecr.us-east-1.amazonaws.com/frontend-image"
     IMAGE2_NAME: "<account_id>.dkr.ecr.us-east-1.amazonaws.com/backend-image"
     
-
-phases:
   pre_build:
     commands:
       - echo Logging into Amazon ECR...
