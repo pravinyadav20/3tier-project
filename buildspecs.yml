@@ -11,6 +11,13 @@ phases:
       - cd ../../application-code/app-tier
       - echo Installing backend dependencies...
       - npm install
+      - echo "Building Web Docker Image..."
+      - cd application-code/web-tier
+      - docker build -t web-img .
+      - cd ../../application-code/app-tier
+      - echo "Building App Docker Image..."
+      - docker build -t app-img .
+      
 
   build:
     commands:
