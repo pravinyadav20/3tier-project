@@ -1,11 +1,5 @@
 version: 0.2
 
-env:
-  variables:
-    AWS_REGION: "ap-south-1"
-    IMAGE1_NAME: "249133131200.dkr.ecr.ap-south-1.amazonaws.com/frontend-image"
-    IMAGE2_NAME: "249133131200.dkr.ecr.ap-south-1.amazonaws.com/backend-image"
-
 phases:
   install:
     commands:
@@ -13,16 +7,6 @@ phases:
       - sudo yum install -y nginx
       - docker build -t image1 ./application-code/web-tier
       - docker build -t image2 ./application-code/app-tier
-
-  pre_build:
-    commands:
-      - echo Logging into Amazon ECR...
-      - ecr:GetAuthorizationToken
-      - ecr:BatchCheckLayerAvailability
-      - ecr:GetAuthorizationToken
-      - aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin2 49133131200.dkr.ecr.ap-south-1.amazonaws.com
-      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $IMAGE1_NAME
-      - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $IMAGE2_NAME
 
   build:
     commands:
@@ -32,10 +16,7 @@ phases:
       - echo Tagging images...
       - docker tag image1:latest $IMAGE1_NAME:latest
       - docker tag image2:latest $IMAGE2_NAME:latest
-      - echo Pushing images...
-      - docker push $IMAGE1_NAME:latest
-      - docker push $IMAGE2_NAME:latest
-      - echo "Docker containers started and images pushed successfully."
+      
 
 artifacts:
   files:
