@@ -11,8 +11,8 @@ phases:
   build:
     commands:
       - echo "Running Docker containers..."
-      - docker run -d --name frontend-container -p 81:80 image1
-      - docker run -d --name backend-container -p 4000:4000 image2
+      - docker run -d --name frontend-container -p 81:80 frontend
+      - docker run -d --name backend-container -p 4000:4000 backend
       - echo "Docker containers started successfully."
       
 
