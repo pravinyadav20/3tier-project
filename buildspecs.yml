@@ -5,17 +5,15 @@ phases:
     commands:
       - echo "Installing frontend and backend via Docker builds..."
       - sudo yum install -y nginx
-      - docker build -t image1 ./application-code/web-tier
-      - docker build -t image2 ./application-code/app-tier
+      - docker build -t frontend ./application-code/web-tier
+      - docker build -t backend ./application-code/app-tier
 
   build:
     commands:
       - echo "Running Docker containers..."
       - docker run -d --name frontend-container -p 81:80 image1
       - docker run -d --name backend-container -p 4000:4000 image2
-      - echo Tagging images...
-      - docker tag image1:latest $IMAGE1_NAME:latest
-      - docker tag image2:latest $IMAGE2_NAME:latest
+      - echo "Docker containers started successfully."
       
 
 artifacts:
